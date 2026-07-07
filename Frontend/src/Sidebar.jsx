@@ -6,6 +6,10 @@ import MyContext from "./MyContext"
 import {v1 as uuidv1} from "uuid";
 
 
+const API_BASE_URL = import.meta.env.PROD
+    ? "https://nova-mind-nrkc.onrender.com"
+    : "http://localhost:8080";
+
 function Sidebar() {
     const {allThreads, setAllThreads, currThreadId, setNewChat, setPrompt, setReply, setCurrThreadId, setPrevChats, token} = useContext(MyContext);
 
@@ -16,7 +20,7 @@ function Sidebar() {
         }
 
         try{
-           const response= await fetch("http://localhost:8080/api/threads", {
+           const response= await fetch(`${API_BASE_URL}/api/threads`, {
                headers: { Authorization: `Bearer ${token}` }
            });
 
@@ -43,7 +47,7 @@ function Sidebar() {
         setCurrThreadId(newThreadId);
 
         try{
-           const response=await fetch(`http://localhost:8080/api/thread/${newThreadId}`, {
+           const response=await fetch(`${API_BASE_URL}/api/thread/${newThreadId}`, {
                headers: { Authorization: `Bearer ${token}` }
            });
            const res=await response.json();
@@ -59,7 +63,7 @@ function Sidebar() {
     }
     const deleteThread = async(threadId) => {
         try{
-            const response= await fetch(`http://localhost:8080/api/thread/${threadId}`, {
+            const response= await fetch(`${API_BASE_URL}/api/thread/${threadId}`, {
                 method:"DELETE",
                 headers: { Authorization: `Bearer ${token}` }
             });

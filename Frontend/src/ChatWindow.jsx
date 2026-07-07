@@ -5,6 +5,10 @@ import Chat from './Chat.jsx';
 import MyContext from "./MyContext.jsx";
 import { ThreeDots } from "react-loader-spinner";
 
+const API_BASE_URL = import.meta.env.PROD
+  ? "https://nova-mind-nrkc.onrender.com"
+  : "http://localhost:8080";
+
 function ChatWindow() {
   const { prompt, setPrompt, setReply, currThreadId, setPrevChats, setNewChat, authUser, isAuthenticated, token, setAuthUser, setToken } = useContext(MyContext);
   const [loading, setLoading] = useState(false);
@@ -48,7 +52,7 @@ function ChatWindow() {
     };
 
     try {
-      const response = await fetch("http://localhost:8080/api/chat", options);
+      const response = await fetch(`${API_BASE_URL}/api/chat`, options);
       const res = await response.json();
       console.log(res);
       setReply(res.reply);
@@ -72,7 +76,7 @@ function ChatWindow() {
     setAuthError("");
 
     try {
-      const endpoint = mode === "signup" ? "http://localhost:8080/api/auth/signup" : "http://localhost:8080/api/auth/login";
+      const endpoint = mode === "signup" ? `${API_BASE_URL}/api/auth/signup` : `${API_BASE_URL}/api/auth/login`;
       const response = await fetch(endpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
