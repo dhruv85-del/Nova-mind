@@ -1,6 +1,9 @@
 {
   "type": "module",
-  
+  "scripts": {
+    "start":"node server.js",
+    "dev": "nodemon server.js"
+  },
   "dependencies": {
     "@openrouter/sdk": "^0.13.21",
     "bcryptjs": "^3.0.2",
