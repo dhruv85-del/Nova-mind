@@ -1,5 +1,6 @@
 {
   "type": "module",
+  
   "dependencies": {
     "@openrouter/sdk": "^0.13.21",
     "bcryptjs": "^3.0.2",
