@@ -1,0 +1,53 @@
+.chats{
+    width: 100%;
+    max-width: 700px;
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 1rem 1rem 2rem;
+    align-self: center;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.35) transparent;
+}
+
+.chats::-webkit-scrollbar {
+    width: 8px;
+}
+
+.chats::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.chats::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.35);
+    border-radius: 999px;
+}
+.userDiv{
+    display: flex;
+    justify-content: flex-end;
+     font-size: 0.9rem;
+    
+}
+.gptDiv{
+    text-align: left;
+    font-size: 0.9rem;
+
+}
+.userMessage{
+    background-color: #323232;
+    padding: 10px 20px;
+    border-radius: 14px;
+    margin-left: 15rem;
+    max-width: 500px;
+    width: fit-content;
+}
+.gptMessage{
+
+}
+.hljs{
+    border-radius: 14px;
+}
+pre{
+    white-space: pre-wrap;
+}
